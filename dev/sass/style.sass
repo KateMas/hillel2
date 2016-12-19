@@ -1,0 +1,778 @@
+//mixins
+@import mixin/breakpoints
+
+//variable
+@import var
+
+//widgets
+@import widgets
+@import form
+
+//wrapper
+.wrapper
+    width: 1146px
+    margin: 0 auto
+    box-sizing: border-box
+    &:after
+        content: ""
+        display: table
+        clear: both
+    @include breakpoint(medium)
+        width: 970px
+        padding: 0 15px
+    @include breakpoint(small)
+        width: 750px
+        padding: 0 15px
+    @include breakpoint(extra-small)
+        width: 100%
+        padding: 0 15px
+
+//general styles
+section
+    padding: 90px 0
+    text-align: center
+    @include breakpoint(extra-small)
+        padding-top: 45px
+        padding-bottom: 45px
+h2, h3
+    color: $cGreyDark
+.title-main
+    font: $fRalewayLarge
+    @include breakpoint(extra-small)
+        font-size: 40px
+        line-height: 40px
+    span
+        font-weight: 600
+.title-line
+    position: relative
+    &:after
+        position: absolute
+        left: 50%
+        bottom: -33px
+        width: 110px
+        height: 3px
+        margin-left: -55px
+        background-color: $cRed
+        content: ""
+p
+    color: $cGrey
+li
+    list-style-type: none
+
+//owl-carousel: dots
+.owl-dots
+    .owl-dot
+        position: relative
+        display: inline-block
+        width: 11px
+        height: 11px
+        margin: 0 5px
+        border-radius: 50%
+        cursor: pointer
+        transition: all 0.3s ease
+
+/*-------------------header--------------------------*/
+
+header
+    position: fixed
+    top: 0
+    z-index: 10
+    width: 100%
+    min-height: 90px
+    margin: auto
+    background-color: $cWhite
+    @include breakpoint(extra-small)
+        min-height: 70px
+    &.header
+        .ws-wrapper
+            position: relative
+            @include breakpoint(extra-small)
+                position: static
+            &:after
+                position: absolute
+                top: 100%
+                width: 100%
+                height: 5px
+                margin: auto
+                background-image: radial-gradient(ellipse at top, rgba(0,0,0,0.1) 0,rgba(0,0,0,0) 70%)
+                content: ""
+                @include breakpoint(small)
+                    left: -15%
+                    right: -15%
+                @include breakpoint(extra-small)
+                    left: 0
+                    right: 0
+        .logo
+            background-image: url(../images/logo/logo-header.png)
+        .navtoggle
+            display: none
+            span
+                @include breakpoint(extra-small)
+                    position: absolute
+                    top: 0
+                    right: 0
+                    display: inline-block
+                    width: 17px
+                    height: 1px
+                    background: $cGreyDark
+                    transition: .3s
+            .l2
+                @include breakpoint(extra-small)
+                    top: 5px
+            .l3
+                @include breakpoint(extra-small)
+                    top: 10px
+            @include breakpoint(extra-small)
+                position: absolute
+                display: block
+                width: 17px
+                height: 10px
+                top: 30px
+                right: 10%
+                z-index: 100
+                cursor: pointer
+        &.open
+            .navtoggle
+                .l1
+                    transform: rotate(45deg) translate(0px, 7px)
+                .l2
+                    opacity: 0
+                .l3
+                    transform: rotate(-45deg) translate(0px, -7px)
+        nav
+            display: inline-block
+            vertical-align: middle
+            .navigation
+                padding: 0 0 0 15px
+                font-size: 0
+                list-style: none
+                text-align: center
+                transition: .3s
+                @include breakpoint(medium)
+                    padding-left: 0
+                @include breakpoint(small)
+                    padding-left: 9px
+                @include breakpoint(extra-small)
+                    position: fixed
+                    right: -100%
+                    z-index: 10
+                    display: block
+                    height: 100vh
+                    width: 100%
+                    transition: .3s
+                &.open-navigation
+                    top: 0
+                    right: 0
+                    background-color: $cWhite
+                li
+                    display: inline-block
+                    &.active, &:hover
+                        background-color: $bgcGreyNav
+                    @include breakpoint(extra-small)
+                        display: block
+                        margin-top: 10px
+                        &:first-of-type
+                            margin-top: 50px
+                    a
+                        display: inline-block
+                        height: 90px
+                        padding: 0 27px
+                        box-sizing: border-box
+                        font: $fPlayfairDisplay
+                        font-size: 18px
+                        line-height: 90px
+                        text-decoration: none
+                        vertical-align: middle
+                        color: $cGreyDark
+                        transition: background-color .35s
+                        @include breakpoint(medium)
+                            padding: 0 24px
+                        @include breakpoint(small)
+                            padding: 0 11px
+                            font-size: 15px
+                        @include breakpoint(extra-small)
+                            height: auto
+                            padding: 0
+                            line-height: 40px
+        .social
+            display: inline-block
+            padding: 0 0 0 33px
+            @include breakpoint(medium)
+                padding-left: 10px
+            @include breakpoint(small)
+                padding-left: 10px
+            @include breakpoint(extra-small)
+                display: none
+
+/*--------------------slider------------------------*/
+.slider
+    position: relative
+    padding: 0
+    .owl-item
+        > div
+            height: 100Vh
+            background-size: cover
+            vertical-align: middle
+            @include breakpoint(small)
+                height: 80Vh
+            @include breakpoint(extra-small)
+                height: 400px
+        .slider--1
+            background-image: url(../images/slider1/slide-image1.jpg)
+        .slider--2
+            background-image: url(../images/slider1/slide-image2.jpg)
+        .slider--3
+            background-image: url(../images/slider1/slide-image1.jpg)
+    .sliderHeader
+        position: absolute
+        right: 20%
+        bottom: 12%
+        left: 20%
+        z-index: 2
+        margin: auto
+        color: $cWhite
+        @include breakpoint(medium)
+            right: 10%
+            left: 10%
+        @include breakpoint(small)
+            right: 10%
+            bottom: 30%
+            left: 10%
+        @include breakpoint(extra-small)
+            right: 5%
+            bottom: 20%
+            left: 5%
+        h1
+            margin: 18px 0
+            font: $fRalewayBold
+            font-size: 48px
+            line-height: 56px
+            @include breakpoint(small)
+                font-size: 42px
+            @include breakpoint(extra-small)
+                font-size: 40px
+                line-height: 44px
+        span
+            margin: 0 20px
+            font: $fPlayfairDisplay
+            font-size: 36px
+            vertical-align: middle
+            line-height: 60px
+            @include breakpoint(extra-small)
+                font-size: 24px
+                line-height: 30px
+        .btn
+            width: auto
+            height: 36px
+            padding: 0 13px
+            background-color: rgba($cWhite, .2)
+            line-height: 36px
+
+    .owl-dots
+        position: absolute
+        height: 30px
+        width: 300px
+        margin: auto
+        bottom: 32.3%
+        left: 0
+        right: 0
+        @include breakpoint(small)
+            bottom: 0
+        @include breakpoint(extra-small)
+            bottom: 0
+        .owl-dot
+            border: 2px solid rgba($cWhite, .7)
+            &.active
+                border: 2px solid $cWhite
+                background-color: $cWhite
+
+/*-------------------about-us--------------------------*/
+.wrapper-about
+    display: flex
+    flex-direction: row
+    align-items: flex-start
+    padding: 0 30px
+    @include breakpoint(small)
+        flex-direction: column
+    @include breakpoint(extra-small)
+        flex-direction: column
+    h2
+        position: relative
+        flex-basis: 32%
+        margin-top: 0
+        font: $fRalewayBold
+        font-size: 37px
+        line-height: 50px
+        text-align: right
+        @include breakpoint(small)
+            text-align: center
+        @include breakpoint(extra-small)
+            font-size: 28px
+            line-height: 44px
+            text-align: center
+        &:after
+            position: absolute
+            right: 0
+            bottom: -28px
+            width: 30px
+            height: 3px
+            background-color: $cGreyDark
+            content: ""
+            @include breakpoint(small)
+                left: 50%
+                margin-left: -15px
+            @include breakpoint(extra-small)
+                bottom: -6px
+                left: 50%
+                margin-left: -15px
+    p
+        margin-top: 4px
+        margin-left: 4%
+        flex-basis: 64%
+        font: $fPlayfairDisplay
+        font-size: 16px
+        line-height: 27px
+        @include breakpoint(small)
+            margin-left: 0
+        @include breakpoint(extra-small)
+            margin-left: 0
+
+/*-------------------advantages--------------------------*/
+.advantages
+    padding-top: 64px
+    background-color: rgba($bgcGreyNav, .5)
+    @include breakpoint(extra-small)
+        padding-top: 0
+    .wrapper-advantages
+        display: flex
+        flex-direction: row
+        justify-content: space-between
+        @include breakpoint(small)
+            flex-flow: row wrap
+        @include breakpoint(extra-small)
+            flex-direction: column
+        .advantage
+            align-self: center
+            margin: 7px
+            text-align: center
+            @include breakpoint(small)
+                width: 50%
+                margin: 0 0 20px
+            @include breakpoint(extra-small)
+                width: 90%
+                margin-bottom: 20px
+            span
+                display: inline-block
+                width: 26px
+                height: 26px
+                background-size: contain
+                background-repeat: no-repeat
+                &.icon-earth
+                    background-image: url(../images/advantages/earth.png)
+                &.icon-briefcase
+                    background-image: url(../images/advantages/briefcase.png)
+                &.icon-photos
+                    background-image: url(../images/advantages/photos.png)
+                &.icon-file-drawer
+                    background-image: url(../images/advantages/file-drawer.png)
+            figcaption
+                padding: 0 20px
+            h2
+                margin-top: 3px
+                margin-bottom: 0
+                font: $fRalewayBold
+                font-size: 20px
+                line-height: 50px
+            p
+                margin: 0
+                font: $fPlayfairDisplay
+
+/*---------------------property-----------------------------*/
+.property
+    background-color: $bgcGrey
+    .title-main
+        @include breakpoint(extra-small)
+            margin-top: 0
+    .under-title
+        width: 48%
+        margin: 67px auto 30px
+        font: $fPlayfairDisplay
+        font-size: 16px
+        line-height: 27px
+        @include breakpoint(extra-small)
+            width: 90%
+    .example
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-between
+        margin-bottom: 50px
+        @include breakpoint(medium)
+            justify-content: space-around
+        @include breakpoint(extra-small)
+            justify-content: space-around
+        figure
+            width: 363px
+            margin: 30px 0 0
+            box-sizing: border-box
+            background-color: $cWhite
+            border: 1px solid rgba($cGreyLight, .4)
+            border-radius: 3px
+            @include breakpoint(small)
+                margin: 30px auto 0
+            @include breakpoint(extra-small)
+                width: 280px
+            img
+                width: 100%
+            h3
+                margin-top: 27px
+                margin-bottom: 0
+                font: $fRaleway
+                font-weight: 500
+                line-height: 16px
+            p
+                font: $fPlayfairDisplay
+                font-size: 15px
+                line-height: 1
+                &.price
+                    margin-top: 20px
+                    font-size: 16px
+                    font-weight: 600
+                    color: $cRed
+            ul
+                margin-top: 30px
+                margin-bottom: 0
+                padding-left: 0
+                border-top: 1px solid rgba($cGreyLight, .4)
+                li
+                    position: relative
+                    display: inline-block
+                    font: $fPlayfairDisplay
+                    font-size: 13px
+                    line-height: 40px
+                    color: $cGrey
+                    &:not(:last-child)
+                        margin-right: 30px
+                        &:after
+                            position: absolute
+                            top: 19px
+                            right: -20px
+                            width: 5px
+                            height: 5px
+                            background-color: $cGreyLight
+                            border-radius: 50%
+                            content: ""
+
+/*---------------------slider-agents-----------------------------*/
+.slider-agents
+    position: relative
+    padding-top: 66px
+    padding-bottom: 0
+    text-align: left
+    @include breakpoint(extra-small)
+        padding: 0
+    .owl-item
+        > div
+            height: 477px
+            @include breakpoint(extra-small)
+                height: auto
+        figure
+            margin: 0
+            @include breakpoint(extra-small)
+                text-align: center
+            img, figcaption
+                display: inline-block
+                vertical-align: top
+            img
+                width: auto
+                @include breakpoint(small)
+                    display: none
+                @include breakpoint(extra-small)
+                    display: none
+
+            figcaption
+                width: 60%
+                margin-top: 2.5%
+                margin-left: 3%
+                @include breakpoint(small)
+                    width: 100%
+                    margin-left: 0
+                @include breakpoint(extra-small)
+                    width: 80%
+                    margin-left: 0
+                h3
+                    margin-top: 68px
+                    font: $fPlayfairDisplayBold
+                p
+                    font: $fPlayfairDisplay
+                    font-size: 16px
+                    line-height: 27px
+                ul
+                    margin-top: 23px
+                    padding-left: 0
+                    li
+                        display: inline-block
+                        padding-left: 27px
+                        background-repeat: no-repeat
+                        background-position: 0 50%
+                        vertical-align: middle
+                        &:first-child
+                            margin-right: 37px
+                            background-image: url(../images/agents/icon-phone.png)
+                            a
+                                text-decoration: none
+                                color: $cGreyDark
+                        &:last-child
+                            background-image: url(../images/agents/icon-envelope.png)
+                            a
+                                color: $cRed
+                        a
+                            font: $fPlayfairDisplay
+                            font-weight: 600
+    .owl-dots
+        position: absolute
+        top: 10.5%
+        left: 55%
+        @include breakpoint(medium)
+            left: 65%
+        @include breakpoint(small)
+            left: 0
+            right: 0
+            width: 100px
+            margin: auto
+        @include breakpoint(extra-small)
+            left: 0
+            right: 0
+            top: 5%
+            width: 75px
+            margin: auto
+        .owl-dot
+            border: 2px solid rgba($cGrey, .7)
+            &.active
+                border: 2px solid $cRed
+                background-color: $cRed
+    .title-main
+        margin-top: 0
+        text-align: left
+        @include breakpoint(extra-small)
+            margin-top: 80px
+            text-align: center
+    .title-line
+        &:after
+            left: 8%
+            @include breakpoint(extra-small)
+                left: 50%
+
+/*---------------------more-----------------------------*/
+.more
+    padding-top: 43px
+    padding-bottom: 43px
+    background-color: $bgcGrey
+    .wrapper-more
+        display: flex
+        flex-direction: row
+        align-items: flex-start
+        align-items: center
+        @include breakpoint(extra-small)
+            flex-direction: column
+        h2
+            flex-basis: 66%
+            margin: 0 19% 0 0
+            font: $fRalewayLarge
+            font-size: 37px
+            text-align: left
+            @include breakpoint(medium)
+                margin-right: 10%
+            @include breakpoint(small)
+                margin-right: 10%
+            @include breakpoint(extra-small)
+                flex-basis: 100%
+                margin: 0 0 20px
+                text-align: center
+            span
+                font-weight: 600
+        button
+            flex-basis: 15%
+            @include breakpoint(medium)
+                flex-basis: 24%
+            @include breakpoint(small)
+                flex-basis: 24%
+            @include breakpoint(extra-small)
+                flex-basis: 24%
+
+/*---------------------slider3-----------------------------*/
+.slider3
+    padding: 0
+    .owl-item
+        text-align: center
+        > div
+            height: 574px
+            background-size: cover
+            @include breakpoint(extra-small)
+                height: 400px
+            .wrapper-testimonials
+                padding-top: 114px
+                @include breakpoint(extra-small)
+                    padding-top: 40px
+                .title-main, p
+                    color: $cWhite
+                .title-main
+                    margin-top: 0
+                .text-testimonials
+                    width: 49%
+                    margin: 75px auto 0
+                    font: $fRaleway
+                    font-size: 24px
+                    line-height: 35px
+                    @include breakpoint(extra-small)
+                        width: 80%
+                        margin-top: 57px
+                        font-size: 18px
+                        line-height: 20px
+                .author-testimonials
+                    font: $fPlayfairDisplay
+                    font-size: 20px
+                    line-height: 27px
+                    @include breakpoint(extra-small)
+                        font-size: 16px
+                        line-height: 20px
+                    span
+                        font-weight: 600
+        .slider--1
+            background-image: url(../images/slider3/slide-image1.jpg)
+        .slider--2
+            background-image: url(../images/slider1/slide-image2.jpg)
+        .slider--3
+            background-image: url(../images/slider1/slide-image1.jpg)
+    .owl-dots
+        position: absolute
+        height: 30px
+        width: 80px
+        margin: auto
+        bottom: 20%
+        left: 0
+        right: 0
+        @include breakpoint(small)
+            bottom: 5%
+        @include breakpoint(extra-small)
+            bottom: 5%
+        .owl-dot
+            border: 2px solid rgba($cWhite, .7)
+            &.active
+                border: 2px solid $cWhite
+                background-color: $cWhite
+    .owl-nav
+        position: absolute
+        right: 0
+        left: 0
+        top: 50%
+        width: 80%
+        margin: auto
+        @include breakpoint(extra-small)
+            display: none
+        div
+            display: inline-block
+            width: 22px
+            height: 42px
+            background-image: url(../images/slider3/arrow.png)
+        .owl-prev
+            float: left
+        .owl-next
+            float: right
+            transform: rotate(180deg)
+/*---------------------partners-----------------------------*/
+.wrapper-partners
+    font-size: 0
+    padding-left: 0
+    li
+        display: inline-block
+        width: 20%
+        vertical-align: middle
+        @include breakpoint(small)
+            width: 25%
+        @include breakpoint(extra-small)
+            width: 100%
+            &:not(:last-child)
+                margin-bottom: 20px
+        &:first-child
+            font: $fRaleway
+            font-size: 25px
+            text-align: left
+            color: $cGreyDark
+            @include breakpoint(small)
+                width: 100%
+                text-align: center
+            @include breakpoint(extra-small)
+                text-align: center
+            span
+                font-weight: 500
+        &:nth-child(2)
+            @include breakpoint(small)
+                text-align: left
+        &:last-child
+            text-align: right
+            @include breakpoint(extra-small)
+                text-align: center
+
+/*---------------------footer-----------------------------*/
+footer
+    padding: 75px 0 86px
+    background-color: $bgcGreyFooter
+    @include breakpoint(extra-small)
+        padding-top: 30px
+        padding-bottom: 30px
+    .wrapper-footer
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-between
+        @include breakpoint(extra-small)
+            flex-direction: column
+        .item-footer
+            width: 25%
+            @include breakpoint(small)
+                width: 50%
+                text-align: center
+            @include breakpoint(extra-small)
+                width: 100%
+                text-align: center
+            .logo
+                margin-top: 6px
+                background-image: url(../images/logo/logo-footer.png)
+            .social
+                margin-top: 20px
+                padding-left: 0
+            h3
+                margin: 0
+                font: $fRaleway
+                font-size: 28px
+                font-weight: 300
+                line-height: 50px
+                color: $cWhite
+            ul
+                margin-top: 10px
+                padding-left: 6px
+                li
+                    a
+                        font: $fPlayfairDisplay
+                        font-size: 15px
+                        line-height: 30px
+                        text-decoration: none
+                        color: $cWhite
+                        &:hover
+                            opacity: .7
+            &.contacts
+                font: $fPlayfairDisplay
+                font-size: 15px
+                p
+                    margin-top: 9px
+                    margin-bottom: 5px
+                    line-height: 30px
+                    color: $cWhite
+                a
+                    line-height: 23px
+                    text-decoration: none
+                    color: $cWhite
+                .mail
+                    line-height: 40px
+                    text-decoration: underline
+                    color: $cRed
+
