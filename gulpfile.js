@@ -69,6 +69,6 @@ gulp.task('connect', connect.server({
     }
 }));
 
-gulp.task('default', ['templates','styles', 'scripts', 'images']);
+gulp.task('default', ['templates','styles', 'plugins', 'scripts', 'images']);
 
 gulp.task('dev', ['default', 'connect', 'watch']);
