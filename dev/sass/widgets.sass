@@ -1,0 +1,43 @@
+@import var
+
+.social
+    li
+        display: inline-block
+        &:not(:last-child)
+            margin-right: 11px
+        a
+            display: inline-block
+            width: 36px
+            height: 36px
+            vertical-align: middle
+            transition: opacity .3s
+            &:hover
+                opacity: .7
+        &.facebook
+            a
+                background-image: url(../images/social/facebook.png)
+        &.pinterest
+            a
+                background-image: url(../images/social/pinterest.png)
+        &.instagram
+            a
+                background-image: url(../images/social/instagram.png)
+        &.google
+            a
+                background-image: url(../images/social/google.png)
+
+.logo
+    display: inline-block
+    width: 173px
+    height: 45px
+    background-image: url(../images/logo/logo-footer.png)
+    background-repeat: no-repeat
+    background-size: cover
+    vertical-align: middle
+    @include breakpoint(small)
+        width: 130px
+        height: 33px
+    @include breakpoint(extra-small)
+        width: 130px
+        height: 33px
+        margin-top: 18.5px
